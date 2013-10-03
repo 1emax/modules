@@ -15,7 +15,8 @@
 
 	 			$commonTabs = $this->getCommonTabs();
 				if($commonTabs) {
-					$commonTabs->add('url');
+					$commonTabs->add('tree');
+					$commonTabs->add('show');
 					
 				}
 	 				 			

@@ -71,6 +71,8 @@ abstract class __seo_conf extends baseModuleAdmin {
             $params["config"]["string:meta-login"] = $regedit->getVal("//modules/seo_config/meta-login");
             $params["config"]["string:meta-password"] = $regedit->getVal("//modules/seo_config/meta-password");
 
+
+
             $this->setDataType("settings");
             $this->setActionType("modify");
 
@@ -86,6 +88,33 @@ abstract class __seo_conf extends baseModuleAdmin {
             array('title'=>'Загрузка')
             )
         );
+    }
+
+    public function show() {
+        $regedit = regedit::getInstance();
+        $this->setDataType("list");
+        $this->setActionType("view");
+        $limit = 20;
+        $curr_page = getRequest('p');
+        $offset = $curr_page * $limit;
+
+        $total = 2;
+
+        $items = Array();
+        $item_arr_1['node:name'] = "name_1";
+        $item_arr_1['attribute:value'] = 111;
+        $item_arr_2['node:name'] = "name_2";
+        $item_arr_2['attribute:value'] = 222;
+        $item_arr_3['node:name'] = 'name_3';
+        $item_arr_3['attribute:value'] = print_r($regedit->getList("//settings/"));
+
+        $items[] = $item_arr_1;
+        $items[] = $item_arr_2;
+        $items[] = $item_arr_3;
+        $data = array('nodes:element' => $items);
+        $this->setData($data, $total);
+        $this->setDataRangeByPerPage($limit, $curr_page);
+        return $this->doData(); 
     }
 
 	public function tree() {
