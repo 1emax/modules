@@ -3,7 +3,10 @@
 	$INFO = array();
 
 	$INFO['name'] = 'seo_config';
-	$INFO['filename'] = 'seo_config/class.php';
+    $INFO['title'] = "SEO Config";
+    $INFO['config'] = '1';
+    $INFO['description'] = "SEO Config";
+	$INFO['filename'] = 'modules/seo_config/class.php';
 	$INFO['ico'] = 'ico_seo_config';
 	$INFO['default_method'] = 'page';
     $INFO['default_method_admin'] = 'tree';
@@ -14,12 +17,12 @@
 
     $COMPONENTS = array();
 
-    $COMPONENTS[0] = "./classes/modules/seo/.htaccess";
-    $COMPONENTS[1] = './classes/modules/mymodule/class.php';
-    $COMPONENTS[2] = './classes/modules/mymodule/__admin.php';
-    $COMPONENTS[3] = './classes/modules/mymodule/lang.php';
-    $COMPONENTS[4] = './classes/modules/mymodule/i18n.php';
-    $COMPONENTS[4] = './classes/modules/mymodule/i18n.en.php';
-    $COMPONENTS[5] = './classes/modules/mymodule/permissions.php';
+    $COMPONENTS[0] = "./classes/modules/seo_config/.htaccess";
+    $COMPONENTS[1] = './classes/modules/seo_config/class.php';
+    $COMPONENTS[2] = './classes/modules/seo_config/__admin.php';
+    $COMPONENTS[3] = './classes/modules/seo_config/lang.php';
+    $COMPONENTS[4] = './classes/modules/seo_config/i18n.php';
+    $COMPONENTS[4] = './classes/modules/seo_config/i18n.en.php';
+    $COMPONENTS[5] = './classes/modules/seo_config/permissions.php';
 
 ?>

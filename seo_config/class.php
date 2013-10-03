@@ -1,11 +1,24 @@
 <?php
 	 class seo_config extends def_module {
-	 	public function __constructor() {
+	 	public function __construct() {
 	 		parent::__construct();
 
 	 		if (cmsController::getInstance()->getCurrentMode() == 'admin') {
 	 			$this->__loadLib('__admin.php');
 	 			$this->__implement('__seo_conf');
+ 
+	 			$configTabs = $this->getConfigTabs();
+				if ($configTabs) {
+					$configTabs->add("config");
+					
+				}
+
+	 			$commonTabs = $this->getCommonTabs();
+				if($commonTabs) {
+					$commonTabs->add('url');
+					$commonTabs->add('meta');
+					$commonTabs->add('block');
+				}
 	 				 			
 	 		} else {
 	 			$this->__loadLib('__custom.php');

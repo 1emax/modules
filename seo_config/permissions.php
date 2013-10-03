@@ -1,10 +1,10 @@
 <?php
-    $permissions = array(
-        'view' => array(
+    $permissions = Array(
+        'view' => Array( // Группа "Просмотр страниц модуля", см install.php
             'page',
             'rubric'
         ), 
-        'admin' => array(
+        'admin' => Array( // Группа "Администрирование модуля", см install.php
             'tree',
             'del',
             'edit',
