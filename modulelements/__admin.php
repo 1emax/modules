@@ -173,6 +173,5 @@ abstract class __modulelements extends baseModuleAdmin {
 		'default' => 'h1[140px]'
 		);
 	}
-	
 };
 ?>
