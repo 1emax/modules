@@ -15,7 +15,7 @@ abstract class __seo_conf extends baseModuleAdmin {
 
             $seo_info = Array();
             $seo_info['status:domain'] = $domain_name;
-            $seo_info['string:title'] = $regedit->getVal("//settings/title_prefix/{$lang_id}/{$domain_id}");
+            $seo_info['string:title-' . $domain_id] = $regedit->getVal("//settings/title_prefix/{$lang_id}/{$domain_id}");
             $seo_info['string:keywords-' . $domain_id] = $regedit->getVal("//settings/meta_keywords/{$lang_id}/{$domain_id}");
             $seo_info['string:description-' . $domain_id] = $regedit->getVal("//settings/meta_description/{$lang_id}/{$domain_id}");
 
@@ -29,9 +29,9 @@ abstract class __seo_conf extends baseModuleAdmin {
                 $domain_id = $domain->getId();
                 $domain_name = $domain->getHost();
 
-                $title = $params[$domain_name]['string:title'];
-                $keywords = $params[$domain_name]['string:keywords'];
-                $description = $params[$domain_name]['string:description'];
+                $title = $params[$domain_name]['string:title-'];
+                $keywords = $params[$domain_name]['string:keywords-'];
+                $description = $params[$domain_name]['string:description-'];
 
                 $regedit->setVal("//settings/title_prefix/{$lang_id}/{$domain_id}", $title);
                 $regedit->setVal("//settings/meta_keywords/{$lang_id}/{$domain_id}", $keywords);
@@ -48,6 +48,37 @@ abstract class __seo_conf extends baseModuleAdmin {
         $this->setData($data);
         return $this->doData();
     }
+
+    public function meta() {
+
+            $regedit = regedit::getInstance();
+            $params = Array (
+                "config" => Array (
+                    "string:meta-login" => null,
+                    "string:meta-password" => null
+                )
+            );
+
+            $mode = getRequest("param0");
+
+            if ($mode == "do"){
+                $params = $this->expectParams($params);
+                $regedit->setVar("//modules/seo_config/meta-login", $params["config"]["string:meta-login"]);
+                $regedit->setVar("//modules/seo_config/meta-password", $params["config"]["string:meta-password"]);
+                $this->chooseRedirect();
+            }
+
+            $params["config"]["string:meta-login"] = $regedit->getVal("//modules/seo_config/meta-login");
+            $params["config"]["string:meta-password"] = $regedit->getVal("//modules/seo_config/meta-password");
+
+            $this->setDataType("settings");
+            $this->setActionType("modify");
+
+            $data = $this->prepareData($params, "settings");
+            $this->setData($data);
+            return $this->doData();
+
+        }
 
     public function getDatasetConfiguration($param = '') {
         return array(

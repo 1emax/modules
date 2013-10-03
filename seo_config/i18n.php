@@ -3,10 +3,13 @@ $i18n = array(
 	'URL' 						=> 'URL',
 	"module-seo_config"		=> "SEO Config",
 	"header-seo_config-config" => "Настройки модуля",
-	"option-seo-title"			=> "Префикс для TITLE",
-	"option-seo-keywords"		=> "Keywords (по-умолчанию)",
-	"option-seo-description"	=> "Description (по-умолчанию)",
-	'header-seo_config-tree'	=> 'Редактирование'
+	"header-seo_config-meta" => "META",
+	"header-seo_config-domains"	=> "Домен",
+	'header-seo_config-tree'	=> 'Редактирование',
+	"option-seo_config-title"			=> "Префикс для TITLE",
+	"option-seo_config-keywords"		=> "Keywords (по-умолчанию)",
+	"option-seo_config-description"	=> "Description (по-умолчанию)"
+
 
 );
 ?>

@@ -10,14 +10,13 @@
 	 			$configTabs = $this->getConfigTabs();
 				if ($configTabs) {
 					$configTabs->add("config");
-					
+					$configTabs->add('meta');				
 				}
 
 	 			$commonTabs = $this->getCommonTabs();
 				if($commonTabs) {
 					$commonTabs->add('url');
-					$commonTabs->add('meta');
-					$commonTabs->add('block');
+					
 				}
 	 				 			
 	 		} else {
