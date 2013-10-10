@@ -46,6 +46,7 @@ abstract class __seo_conf extends baseModuleAdmin {
 
         $data = $this->prepareData($params, 'settings');
         $this->setData($data);
+
         return $this->doData();
     }
 
@@ -78,6 +79,7 @@ abstract class __seo_conf extends baseModuleAdmin {
 
             $data = $this->prepareData($params, "settings");
             $this->setData($data);
+            echo '5555555555';
             return $this->doData();
 
         }
