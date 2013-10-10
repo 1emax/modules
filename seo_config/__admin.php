@@ -29,9 +29,9 @@ abstract class __seo_conf extends baseModuleAdmin {
                 $domain_id = $domain->getId();
                 $domain_name = $domain->getHost();
 
-                $title = $params[$domain_name]['string:title-'];
-                $keywords = $params[$domain_name]['string:keywords-'];
-                $description = $params[$domain_name]['string:description-'];
+                $title = $params[$domain_name]['string:title-' . $domain_id];
+                $keywords = $params[$domain_name]['string:keywords-' . $domain_id];
+                $description = $params[$domain_name]['string:description-' . $domain_id];
 
                 $regedit->setVal("//settings/title_prefix/{$lang_id}/{$domain_id}", $title);
                 $regedit->setVal("//settings/meta_keywords/{$lang_id}/{$domain_id}", $keywords);
@@ -40,7 +40,7 @@ abstract class __seo_conf extends baseModuleAdmin {
 
             $this->chooseRedirect();
         }
-
+// 
         $this->setDataType('settings');
         $this->setActionType('modify');
 
@@ -71,7 +71,7 @@ abstract class __seo_conf extends baseModuleAdmin {
             $params["config"]["string:meta-login"] = $regedit->getVal("//modules/seo_config/meta-login");
             $params["config"]["string:meta-password"] = $regedit->getVal("//modules/seo_config/meta-password");
 
-
+            
 
             $this->setDataType("settings");
             $this->setActionType("modify");
